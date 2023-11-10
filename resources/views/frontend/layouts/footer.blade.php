@@ -3,7 +3,7 @@
     <div class="widgets-section">
         <div class="auto-container">
             <div class="row">
-                <!-- Footer Sütunu -->
+
                 <div class="footer-column col-lg-3 col-md-6 col-sm-12">
                     <div class="footer-widget about-widget">
                         <div class="widget-content">
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Footer Sütunu -->
+
                 <div class="footer-column col-lg-2 col-md-6 col-sm-12 mb-0">
                     <div class="footer-widget links-widget">
                         <h4 class="widget-title">keşfet</h4>
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Footer Sütunu -->
+
                 <div class="footer-column col-lg-3 col-md-6 col-sm-12 mb-0">
                     <div class="footer-widget contact-widget">
                         <h4 class="widget-title">İletişim</h4>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Footer Sütunu -->
+
                 <div class="footer-column col-lg-4 col-md-6 col-sm-12">
                     <div class="footer-widget newsletter-widget">
                         <div class="sec-title">
@@ -66,7 +66,7 @@
             </div>
         </div>
     </div>
-    <!-- Footer Alt Kısmı -->
+
     <div class="footer-bottom">
         <div class="auto-container">
             <div class="inner-container">
