@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Blog;
+use App\Models\Service;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,8 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (! app()->runningInConsole()) {
+        if (!app()->runningInConsole()) {
             Paginator::useBootstrap();
+
+            View::share('latestBlog', Blog::latest()->limit(3)->get());
+            View::share('latestService', Service::latest()->limit(3)->get());
+
         }
     }
 }
