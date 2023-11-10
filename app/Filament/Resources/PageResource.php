@@ -3,9 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
-use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
-use Filament\Forms;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
@@ -16,8 +14,6 @@ use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class PageResource extends Resource
@@ -34,7 +30,6 @@ class PageResource extends Resource
 
     protected static ?string $activeNavigationIcon = 'heroicon-s-book-open';
 
-
     public static function form(Form $form): Form
     {
         return $form
@@ -42,7 +37,7 @@ class PageResource extends Resource
                 Card::make()->schema([
                     TextInput::make('title')
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
                         ->label('Başlık'),
                     TextInput::make('slug')
                         ->hint('Otomatik Doldurulmaktadır!')
@@ -53,7 +48,7 @@ class PageResource extends Resource
                         ->label('Açıklama')
                         ->maxLength(140)
                         ->hint('Maximum 140 Karaterle Sınırlıdır!')
-                        ->required()
+                        ->required(),
                 ]),
                 Card::make()->schema([
                     RichEditor::make('body')
@@ -61,16 +56,14 @@ class PageResource extends Resource
                         ->required(),
                 ]),
 
-
                 Card::make()->schema([
                     SpatieMediaLibraryFileUpload::make('thumbnail')
                         ->collection('page')
                         ->imageEditor()
-                        ->imageEditorAspectRatios([null, '16:9', '4:3', '1:1',])
+                        ->imageEditorAspectRatios([null, '16:9', '4:3', '1:1'])
                         ->label('Resim')
-                        ->columnSpanFull()
+                        ->columnSpanFull(),
                 ])->columns(1),
-
 
                 Card::make()->schema([
                     Toggle::make('is_active')

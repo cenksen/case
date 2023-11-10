@@ -33,5 +33,4 @@ class Page extends Model implements HasMedia
             ->withResponsiveImages()
             ->nonQueued();
     }
-
 }
