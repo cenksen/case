@@ -2,13 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\HeadLineTypeEnum;
 use App\Filament\Resources\BlogResource\Pages;
-use App\Filament\Resources\BlogResource\RelationManagers;
 use App\Models\Blog;
-use Filament\Forms;
 use Filament\Forms\Components\Card;
-use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
@@ -20,7 +16,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Table;
-
 use Illuminate\Support\Str;
 
 class BlogResource extends Resource
@@ -45,7 +40,7 @@ class BlogResource extends Resource
                     ->schema([
                         TextInput::make('title')
                             ->live(onBlur: true)
-                            ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                            ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
                             ->label('Başlık'),
 
                         Textarea::make('description')
@@ -56,7 +51,6 @@ class BlogResource extends Resource
                             ->label('İçerik'),
 
                     ])->columnSpan(2),
-
 
                 Card::make()
                     ->schema([
@@ -81,19 +75,17 @@ class BlogResource extends Resource
                                         ->hint('Otomatik Doldurulmaktadır!')
                                         ->label('URL'),
 
-                                ])->columns(2),]
+                                ])->columns(2), ]
                             ),
-
 
                         SpatieMediaLibraryFileUpload::make('blog')
                             ->label('Görsel')
                             ->responsiveImages()
                             ->imageEditor()
-                            ->imageEditorAspectRatios([null, '16:9', '4:3', '1:1',]),
-
+                            ->imageEditorAspectRatios([null, '16:9', '4:3', '1:1']),
 
                     ])
-                    ->columnSpan(1)
+                    ->columnSpan(1),
             ])->columns(3);
 
     }

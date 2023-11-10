@@ -21,7 +21,6 @@ class Blog extends Model implements HasMedia
         return $this->belongsTo(Category::class);
     }
 
-
     public function registerMediaCollections(Media $media = null): void
     {
         $this
