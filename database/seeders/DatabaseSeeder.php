@@ -6,10 +6,8 @@ namespace Database\Seeders;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Page;
-use App\Models\QuotationForm;
 use App\Models\Service;
 use App\Models\User;
-use Database\Factories\QuotationFormFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder

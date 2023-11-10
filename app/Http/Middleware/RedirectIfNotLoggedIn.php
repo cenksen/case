@@ -8,10 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfNotLoggedIn
 {
-
     public function handle(Request $request, Closure $next)
     {
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             return redirect('/')->with('error', 'Bu sayfayı görüntülemek için giriş yapmanız gerekiyor.');
         }
 

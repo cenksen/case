@@ -28,8 +28,6 @@ Route::get('/bilgi-bankasi/{category}/{slug}', [BlogController::class, 'show'])-
 Route::get('/icerik/', [BlogController::class, 'search'])->name('blog.search');
 Route::get('/{slug}', [PageController::class, 'business'])->name('business');
 
-
-
 Route::middleware(['notLoggedIn'])->group(function () {
     Route::get('pdf/{quotationForm}', PdfController::class)->name('pdf');
 });
