@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Page;
 use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Pagination\Paginator;
@@ -31,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
             View::share('latestService', Service::latest()->limit(3)->get());
             View::share('categories', Category::all());
             View::share('sliders', Slider::all());
+            View::share('pages', Page::where('is_active', 1)->get());
+
         }
     }
 }

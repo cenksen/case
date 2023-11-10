@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/icerik/', [BlogController::class, 'search'])->name('blog.search');
+Route::get('/{slug}', [PageController::class, 'business'])->name('business');
+
 
 
 Route::get('/', [PageController::class, 'index'])->name('home');

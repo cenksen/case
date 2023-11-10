@@ -66,6 +66,17 @@
                     <nav class="nav main-menu">
                         <ul class="navigation">
                             <li><a href="{{route('home')}}">Anasayfa</a></li>
+
+                            <li class="dropdown"><a href="#">Kurumsal</a>
+                                <ul>
+                                    @foreach($pages as $page)
+                                        <li>
+                                            <a href="{{route('business', ['slug' => $page->slug])}}">{{$page->title}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                <div class="dropdown-btn"><i class="fa fa-angle-down"></i></div>
+                            </li>
                             <li><a href="{{route('service')}}">Hizmetlerimiz</a></li>
                             <li><a href="{{route('blog')}}">Bilgi Bankası</a></li>
                             <li><a href="#">İletişim</a></li>
