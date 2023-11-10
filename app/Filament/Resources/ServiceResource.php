@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ServiceResource\Pages;
-use App\Filament\Resources\ServiceResource\RelationManagers;
 use App\Models\Service;
 use Filament\Forms;
 use Filament\Forms\Components\Card;
@@ -15,8 +14,6 @@ use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
 
 class ServiceResource extends Resource
@@ -24,9 +21,13 @@ class ServiceResource extends Resource
     protected static ?string $model = Service::class;
 
     protected static ?string $navigationGroup = 'Hizmet Yönetimi';
+
     protected static ?string $modelLabel = 'Hizmet';
+
     protected static ?int $navigationSort = 2;
+
     protected static ?string $navigationIcon = 'heroicon-o-wrench';
+
     protected static ?string $activeNavigationIcon = 'heroicon-s-wrench';
 
     public static function form(Form $form): Form
@@ -36,7 +37,7 @@ class ServiceResource extends Resource
                 Card::make()->schema([
                     TextInput::make('title')
                         ->live(onBlur: true)
-                        ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state)))
+                        ->afterStateUpdated(fn (Set $set, ?string $state) => $set('slug', Str::slug($state)))
                         ->label('Başlık'),
                     TextInput::make('slug')
                         ->hint('Otomatik Doldurulmaktadır!')
@@ -60,9 +61,9 @@ class ServiceResource extends Resource
                     SpatieMediaLibraryFileUpload::make('thumbnail')
                         ->collection('service')
                         ->imageEditor()
-                        ->imageEditorAspectRatios([null, '16:9', '4:3', '1:1',])
+                        ->imageEditorAspectRatios([null, '16:9', '4:3', '1:1'])
                         ->label('Resim')
-                        ->columnSpanFull()
+                        ->columnSpanFull(),
                 ])->columns(1),
             ]);
     }
