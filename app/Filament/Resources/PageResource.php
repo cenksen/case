@@ -20,7 +20,7 @@ class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
 
-    protected static ?string $navigationGroup = 'Sayfa Modulü';
+    protected static ?string $navigationGroup = 'Sayfa Yönetimi';
 
     protected static ?string $modelLabel = 'Sayfa';
 
