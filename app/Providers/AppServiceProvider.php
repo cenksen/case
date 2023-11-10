@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if (!app()->runningInConsole()) {
+        if (! app()->runningInConsole()) {
             Paginator::useBootstrap();
             View::share('latestBlog', Blog::latest()->limit(3)->get());
             View::share('latestService', Service::latest()->limit(3)->get());

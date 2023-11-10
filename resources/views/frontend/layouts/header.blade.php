@@ -67,7 +67,7 @@
                         <ul class="navigation">
                             <li><a href="{{route('home')}}">Anasayfa</a></li>
 
-                            <li class="dropdown"><a href="#">Kurumsal</a>
+                            <li class="dropdown current"><a href="#">Kurumsal</a>
                                 <ul>
                                     @foreach($pages as $page)
                                         <li>
