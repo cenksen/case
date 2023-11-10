@@ -65,6 +65,12 @@ class ServiceResource extends Resource
                         ->label('Resim')
                         ->columnSpanFull(),
                 ])->columns(1),
+                Card::make()->schema([
+                    SpatieMediaLibraryFileUpload::make('service_pdf')
+                        ->collection('service_pdf')
+                        ->label('PDF')
+                        ->columnSpanFull(),
+                ])->columns(1),
             ]);
     }
 

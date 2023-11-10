@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class,'index'])->name('home');
+Route::get('/icerik/', [BlogController::class, 'search'])->name('blog.search');
+
+
+Route::get('/', [PageController::class, 'index'])->name('home');
+
+Route::get('/hizmetlerimiz', [ServiceController::class, 'index'])->name('service');
+Route::get('/hizmetlerimiz/{slug}', [ServiceController::class, 'show'])->name('service.show');
+
+Route::get('/bilgi-bankasi', [BlogController::class, 'index'])->name('blog');
+Route::get('/bilgi-bankasi/{category}', [BlogController::class, 'category'])->name('blog.category');
+Route::get('/bilgi-bankasi/{category}/{slug}', [BlogController::class, 'show'])->name('blog.show');
