@@ -4,10 +4,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12">
-                    {{$page->getFirstMedia('page')->img('page',['alt'=>$page->title])}}
+                    @if($page->getFirstMedia('page'))
+                        {{$page->getFirstMedia('page')->img('page',['alt'=>$page->title])}}
+                    @else
+                        <img src="{{asset('ui/images/resource/404.jpg')}}">
+                    @endif
                 </div>
                 <div class="col-xl-12 col-lg-12">
-                 {!!   $page->body!!}
+                    {!!   $page->body!!}
                 </div>
             </div>
         </div>
