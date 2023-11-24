@@ -12,6 +12,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use RyanChandler\FilamentNavigation\Models\Navigation;
 use Spatie\LaravelSettings\Exceptions\MissingSettings;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
         if (! app()->runningInConsole()) {
             $this->setMailConfig();
             Paginator::useBootstrap();
+            $menu = Navigation::fromHandle('header');
+            View::share('menu', $menu);
             View::share('latestBlog', Blog::latest()->limit(3)->get());
             View::share('latestService', Service::latest()->limit(3)->get());
             View::share('categories', Category::all());

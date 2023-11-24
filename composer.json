@@ -15,6 +15,7 @@
         "filament/filament": "^3.0-stable",
         "filament/spatie-laravel-media-library-plugin": "^3.0-stable",
         "filament/spatie-laravel-settings-plugin": "^3.0-stable",
+        "ryangjchandler/filament-navigation": "v1.0.0-beta4",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",

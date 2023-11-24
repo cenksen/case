@@ -65,24 +65,23 @@
                 <div class="nav-outer">
                     <nav class="nav main-menu">
                         <ul class="navigation">
-                            <li><a href="{{route('home')}}">Anasayfa</a></li>
+                            @foreach($menu->items as $item)
+                                <li class="{{ isset($item['children']) && !empty($item['children']) ? 'dropdown' : '' }}">
+                                    <a href="{{ url($item['data']['url']) }}">{{ $item['label'] }}</a>
 
-                            <li class="dropdown current"><a href="#">Kurumsal</a>
-                                <ul>
-                                    @foreach($pages as $page)
-                                        <li>
-                                            <a href="{{route('business', ['slug' => $page->slug])}}">{{$page->title}}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                                <div class="dropdown-btn"><i class="fa fa-angle-down"></i></div>
-                            </li>
-                            <li><a href="{{route('service')}}">Hizmetlerimiz</a></li>
-                            <li><a href="{{route('blog')}}">Bilgi Bankası</a></li>
-                            <li><a href="#">İletişim</a></li>
+                                    @if(!empty($item['children']))
+                                        <ul>
+                                            @foreach($item['children'] as $child)
+                                                <li>
+                                                    <a href="{{ $child['data']['url'] }}">{{ $child['label'] }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </li>
+                            @endforeach
                         </ul>
                     </nav>
-
                 </div>
                 <div class="outer-box">
                     <div class="search-btn">
